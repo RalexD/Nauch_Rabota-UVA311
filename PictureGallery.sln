@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PictureGallery", "PictureGallery\PictureGallery.csproj", "{9484CCF2-D827-4935-AE97-E6A55DC8F64F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{397E1CA5-8886-469D-938C-78ECFF8F9792}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staff", "Staff\Staff.csproj", "{FBBBD793-ECBA-45A9-9428-042AA3D1A451}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9484CCF2-D827-4935-AE97-E6A55DC8F64F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9484CCF2-D827-4935-AE97-E6A55DC8F64F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9484CCF2-D827-4935-AE97-E6A55DC8F64F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9484CCF2-D827-4935-AE97-E6A55DC8F64F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{397E1CA5-8886-469D-938C-78ECFF8F9792}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{397E1CA5-8886-469D-938C-78ECFF8F9792}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{397E1CA5-8886-469D-938C-78ECFF8F9792}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{397E1CA5-8886-469D-938C-78ECFF8F9792}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBBBD793-ECBA-45A9-9428-042AA3D1A451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBBBD793-ECBA-45A9-9428-042AA3D1A451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBBBD793-ECBA-45A9-9428-042AA3D1A451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBBBD793-ECBA-45A9-9428-042AA3D1A451}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5FFFC3E3-7FBF-46AD-BA6D-00184838C480}
+	EndGlobalSection
+EndGlobal
