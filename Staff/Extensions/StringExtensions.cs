@@ -1,13 +1,19 @@
-﻿namespace String.Extensions
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Staff.Extensions
 {
     public static class StringExtensions
     {
-        public static bool IsNullorEmpty(this string value) => string.IsNullOrEmpty(value);
+        public static bool IsNullOrEmpty(this string value) => string.IsNullOrEmpty(value);
 
         public static string TrimorNull(this string value)
         {
             var trimmed = value?.Trim();
-            return trimmed.IsNullorEmpty() ? null : trimmed; 
+            return trimmed.IsNullOrEmpty() ? null : trimmed;
         }
     }
 }

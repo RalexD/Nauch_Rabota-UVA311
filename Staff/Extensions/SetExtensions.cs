@@ -1,4 +1,4 @@
-﻿namespace String.Extensions
+﻿namespace Staff.Extensions
 {
     using System.Collections.Generic;
     public static class SetExtensions

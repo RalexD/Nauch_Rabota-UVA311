@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using String.Extensions;
+    using Staff.Extensions;
 
 
     /// <summary>
@@ -10,6 +10,23 @@
     /// </summary>
     public class Picture
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="authors"></param>
+        public Picture(int id, string name, params Author[] authors)
+            : this(id, name, new HashSet<Author>(authors))
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="authors"></param>
         public Picture(int id, string name, ISet<Author> authors = null)
         {
             this.Id = id;
@@ -43,7 +60,7 @@
 
         public override string ToString()
         {
-            return $"{this.Name}  {this.Authors}";
+            return $"{this.Name}  {this.Authors.Join()}";
         }
     } 
 }

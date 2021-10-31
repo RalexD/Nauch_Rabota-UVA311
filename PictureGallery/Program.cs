@@ -1,15 +1,16 @@
-﻿using System;
-
-namespace PictureGallery
+﻿namespace PictureGallery
 {
+    using System;
+
     class Program
     {
         static void Main(string[] args)
         {
-            var book = new Domain.Picture();
-            var author = new Domain.Author();
+            var author = new Domain.Author(1, "Васнецов", "Виктор");
+            var picture = new Domain.Picture(1, "Богатыри", author);
+            author.AddPicture(picture);
 
-            Console.WriteLine($"{book} {author}");
+            Console.WriteLine($"{picture} {author}");
         }
     }
 }
