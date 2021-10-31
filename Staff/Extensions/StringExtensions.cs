@@ -10,7 +10,7 @@ namespace Staff.Extensions
     {
         public static bool IsNullOrEmpty(this string value) => string.IsNullOrEmpty(value);
 
-        public static string TrimorNull(this string value)
+        public static string TrimOrNull(this string value)
         {
             var trimmed = value?.Trim();
             return trimmed.IsNullOrEmpty() ? null : trimmed;

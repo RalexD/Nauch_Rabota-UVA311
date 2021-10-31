@@ -2,14 +2,14 @@
 {
     using System;
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var author = new Domain.Author(1, "Васнецов", "Виктор");
-            var picture = new Domain.Picture(1, "Богатыри", author);
+            var picture = new Domain.Picture(1, "Богатыри");
             author.AddPicture(picture);
-
+            
             Console.WriteLine($"{picture} {author}");
         }
     }

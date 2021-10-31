@@ -19,8 +19,8 @@
         public Author(int id, string lastName, string firstName)
         {
             this.Id = id;
-            this.LastName = lastName ?? throw new ArgumentOutOfRangeException(nameof(lastName));
-            this.FirstName = firstName ?? throw new ArgumentOutOfRangeException(nameof(firstName));
+            this.LastName = lastName.TrimOrNull() ?? throw new ArgumentOutOfRangeException(nameof(lastName));
+            this.FirstName = firstName.TrimOrNull() ?? throw new ArgumentOutOfRangeException(nameof(firstName));
         }
 
         /// <summary>

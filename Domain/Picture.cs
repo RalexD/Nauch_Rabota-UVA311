@@ -31,7 +31,7 @@
         {
             this.Id = id;
 
-            this.Name = name.TrimorNull() ?? throw new ArgumentOutOfRangeException(nameof(name));
+            this.Name = name.TrimOrNull() ?? throw new ArgumentOutOfRangeException(nameof(name));
 
             if (authors != null )
             {
