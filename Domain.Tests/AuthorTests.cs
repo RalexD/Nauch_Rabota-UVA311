@@ -1,4 +1,4 @@
-
+п»ї
 namespace Domain.Tests
 {
     using NUnit.Framework;
@@ -7,37 +7,50 @@ namespace Domain.Tests
     [TestFixture]
     public class AuthorTests
     {
-        [Test]
+        private Picture picture;
 
+        [SetUp]
+        public void Setup()
+        {
+            this.picture = new Picture(1, "Р‘СѓСЂР»Р°РєРё РЅР° Р’РѕР»РіРµ");
+        }
+
+
+        [Test]
         public void To_String_ValidData_Success()
         {
             //arrange
-            var author = new Author(1, "Васнецов", "Виктор");
+            var author = new Author(1, "Р’Р°СЃРЅРµС†РѕРІ", "Р’РёРєС‚РѕСЂ");
 
             //act
             var result = author.ToString();
             //assert
-            Assert.AreEqual("Васнецов В.", result);
+            Assert.AreEqual("Р’Р°СЃРЅРµС†РѕРІ Р’.", result);
         }
         [Test]
         public void Constr_data_invalid()
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() => new Author(1, "Васнецов", ""));
+            Assert.Throws<ArgumentOutOfRangeException>(() => new Author(1, "Р’Р°СЃРЅРµС†РѕРІ", ""));
         }
+
+    
 
         [Test]
         public void AddPictureToAuthor_ValidData_Success()
         {
-            //arrange
-            var author = new Author(2, "Репин", "Илья");
-            var picture = new Picture(2, "Бурлаки на Волге");
+            // arrange
+            var author = GetAuthor("РќРѕСЃРѕРІ", "РќРёРєРѕР»Р°Р№");
 
-            //act
-            var result = author.AddPicture(picture);
+            // act
+            var result = author.AddPicture(this.picture);
 
-            //assert
+            // assert
             Assert.AreEqual(true, result);
+        }
 
+        private static Author GetAuthor(string lastName = null, string firstName = null)
+        {
+            return new Author(1, lastName ?? "РўРµСЃС‚РѕРІС‹Р№", firstName ?? "РђРІС‚РѕСЂ");
         }
     }
 }
