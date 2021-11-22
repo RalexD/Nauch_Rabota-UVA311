@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Staff", "Staff\Staff.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{618C8AB1-14AE-4199-A627-6D646EC3B28F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORM", "ORM\ORM.csproj", "{3CDD0470-D9B2-473B-BA0B-53A545B53742}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ORM", "ORM\ORM.csproj", "{3CDD0470-D9B2-473B-BA0B-53A545B53742}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapping", "Mapping\Mapping.csproj", "{61E7FDD6-0A77-46E4-A536-C50EACA10602}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{3CDD0470-D9B2-473B-BA0B-53A545B53742}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CDD0470-D9B2-473B-BA0B-53A545B53742}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CDD0470-D9B2-473B-BA0B-53A545B53742}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61E7FDD6-0A77-46E4-A536-C50EACA10602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61E7FDD6-0A77-46E4-A536-C50EACA10602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61E7FDD6-0A77-46E4-A536-C50EACA10602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61E7FDD6-0A77-46E4-A536-C50EACA10602}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

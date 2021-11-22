@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using Staff.Extensions;
 
-
     /// <summary>
     /// Картина.
     /// </summary>
