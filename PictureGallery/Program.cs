@@ -1,16 +1,34 @@
-﻿namespace PictureGallery
+﻿// <copyright file="Program.cs" company="МИИТ_УВА-311">
+// Copyright (c) МИИТ_УВА-311. All rights reserved.
+// </copyright>
+
+namespace PictureGallery
 {
     using System;
+    using Domain;
+    using ORM;
 
-    class Program
+    /// <summary>
+    /// The profram.
+    /// </summary>
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            var author = new Domain.Author(1, "Васнецов", "Виктор");
-            var picture = new Domain.Picture(1, "Богатыри", author);
+            var author = new Author(1, "Васнецов", "Виктор");
+
+            var picture = new Picture(1, "Богатыри", author);
+
             author.AddPicture(picture);
 
             Console.WriteLine($"{picture} {author}");
+
+            using var sessionFactory = NHibernateConfigurator.GetSessionFactory(showSql: true);
+
+            using var session = sessionFactory.OpenSession();
+            session.Save(author);
+            session.Save(picture);
+            session.Flush();
         }
     }
 }
