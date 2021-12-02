@@ -49,8 +49,8 @@ namespace ORM
             {
                 var databaseConfiguration = MsSqlConfiguration.MsSql2012.ConnectionString(
                     x => x
-                    .Server(@"LAPTOP-2ALR8J1J\SQLEXPRESS")
-                    .Database("DemoPictureGallery")
+                    .Server(@"localhost\SQLEXPRESS")
+                    .Database("master")
                     .TrustedConnection());
 
                 if (showSql)
