@@ -4,31 +4,19 @@
 
 namespace PictureGallery
 {
-    using System;
-    using Domain;
     using ORM;
-
+    using Domain;
     /// <summary>
-    /// The profram.
+    /// Исполняемый класс.
     /// </summary>
     internal class Program
     {
-        private static void Main()
+        private static void Main(string[] args)
         {
-            var author = new Author(1, "Васнецов", "Виктор");
-
-            var picture = new Picture(1, "Богатыри", author);
-
-            author.AddPicture(picture);
-
-            Console.WriteLine($"{picture} {author}");
-
-            using var sessionFactory = NHibernateConfigurator.GetSessionFactory(showSql: true);
-
-            using var session = sessionFactory.OpenSession();
-            session.Save(author);
-            session.Save(picture);
-            session.Flush();
+            using (var db = NHibernateConfigurator.GetSessionFactory())
+            {
+                Author author = new Author(1, "Носов", "Николай");
+            }
         }
     }
 }

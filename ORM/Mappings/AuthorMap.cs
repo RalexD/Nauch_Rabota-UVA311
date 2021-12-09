@@ -26,7 +26,7 @@ namespace ORM.Mappings
             this.Map(x => x.FirstName).Not.Nullable();
             this.Map(x => x.LastName).Not.Nullable();
 
-            this.HasManyToMany(x => x.Pictures);
+            this.HasMany(x => x.Pictures);
         }
     }
 }
