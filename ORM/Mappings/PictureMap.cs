@@ -24,8 +24,6 @@ namespace ORM.Mappings
             this.Id(x => x.Id);
 
             this.Map(x => x.Name);
-
-            this.HasManyToMany(x => x.Authors).Inverse();
         }
     }
 }
