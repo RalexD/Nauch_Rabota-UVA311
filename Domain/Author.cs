@@ -1,4 +1,8 @@
-﻿namespace Domain
+﻿// <copyright file="Author.cs" company="МИИТ_УВА-311">
+// Copyright (c) МИИТ_УВА-311. All rights reserved.
+// </copyright>
+
+namespace Domain
 {
     using System;
     using System.Collections.Generic;
@@ -15,51 +19,59 @@
         /// <param name="id">Идентификатор.</param>
         /// <param name="lastName">Фамилия.</param>
         /// <param name="firstName">Имя.</param>
-
         public Author(int id, string lastName, string firstName)
         {
             this.Id = id;
-            this.LastName = lastName.TrimOrNull() ?? throw new ArgumentOutOfRangeException(nameof(lastName));
-            this.FirstName = firstName.TrimOrNull() ?? throw new ArgumentOutOfRangeException(nameof(firstName));
+            this.LastName = lastName.TrimorNull() ?? throw new ArgumentOutOfRangeException(nameof(lastName));
+            this.FirstName = firstName.TrimorNull() ?? throw new ArgumentOutOfRangeException(nameof(firstName));
         }
 
         /// <summary>
-        /// Уникальный идентификатор.
+        /// Инициализирует новый экземпляр класса <see cref="Author"/>.
         /// </summary>
-        public int Id { get; protected set; }
+        [Obsolete("For ORM only", true)]
+        protected Author()
+        {
+        }
 
         /// <summary>
-        /// Фамилия.
+        /// Получает или задает уникальный идентификатор.
         /// </summary>
-        public string LastName { get; protected set; }
+        public virtual int Id { get; protected set; }
 
         /// <summary>
-        /// Имя.
+        /// Получает или задает фамилия.
         /// </summary>
-        public string FirstName { get; protected set; }
+        public virtual string LastName { get; set; }
 
         /// <summary>
-        /// Список картин автора.
+        /// Получает или задает имя.
         /// </summary>
-        public ISet<Picture> Pictures { get; protected set; } = new HashSet<Picture>();
+        public virtual string FirstName { get; set; }
 
         /// <summary>
-        /// Полное имя.
+        /// Получает или задает список картин автора.
         /// </summary>
-        public string FullName => $"{this.LastName} {this.FirstName?[0]}.".Trim();
+        public virtual ISet<Picture> Pictures { get; set; } = new HashSet<Picture>();
 
         /// <summary>
-        /// Добавить картину автору
+        /// Получает полное имя.
+        /// </summary>
+        public virtual string FullName => $"{this.LastName} {this.FirstName?[0]}.".Trim();
+
+        /// <summary>
+        /// Добавить картину автору.
         /// </summary>
         /// <param name="picture"> добавляемая картина.</param>
         /// <returns>
         /// <see langword="true"/> если книга была добавлена.
         /// </returns>
-        public bool AddPicture(Picture picture)
+        public virtual bool AddPicture(Picture picture)
         {
             return this.Pictures.TryAdd(picture) ?? throw new ArgumentNullException(nameof(picture));
         }
 
+        /// <inheritdoc/>
         public override string ToString() => this.FullName;
     }
 }

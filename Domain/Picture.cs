@@ -1,7 +1,10 @@
-﻿namespace Domain
+﻿// <copyright file="Picture.cs" company="МИИТ_УВА-311">
+// Copyright (c) МИИТ_УВА-311. All rights reserved.
+// </copyright>
+
+namespace Domain
 {
     using System;
-    using System.Collections.Generic;
     using Staff.Extensions;
 
     /// <summary>
@@ -10,56 +13,47 @@
     public class Picture
     {
         /// <summary>
-        /// 
+        /// Инициализирует новый экземпляр класса <see cref="Picture"/>.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <param name="authors"></param>
-        public Picture(int id, string name, params Author[] authors)
-            : this(id, name, new HashSet<Author>(authors))
-        {
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <param name="authors"></param>
-        public Picture(int id, string name, ISet<Author> authors = null)
+        /// <param name="id">Уникальный идентификатор.</param>
+        /// <param name="name">Название картины.</param>
+        /// <param name="author">автор.</param>
+        public Picture(int id, string name, Author author = null)
         {
             this.Id = id;
 
-            this.Name = name.TrimOrNull() ?? throw new ArgumentOutOfRangeException(nameof(name));
+            this.Name = name.TrimorNull() ?? throw new ArgumentOutOfRangeException(nameof(name));
 
-            if (authors != null )
-            {
-                foreach (var author in authors)
-                {
-                    this.Authors.Add(author);
-                    author.AddPicture(this);
-                }
-            }
+            this.Picture_author = author;
         }
 
         /// <summary>
-        /// Уникальный идентификатор.
+        /// Инициализирует новый экземпляр класса <see cref="Picture"/>.
         /// </summary>
-        public int Id { get; protected set; }
+        [Obsolete("For ORM only", true)]
+        protected Picture()
+        {
+        }
 
         /// <summary>
-        /// Название картины.
+        /// Получает или задает уникальный идентификатор.
         /// </summary>
-        public string Name { get; protected set; }
+        public virtual int Id { get; protected set; }
 
         /// <summary>
-        /// Список Авторов.
+        /// Получает или задает название картины.
         /// </summary>
-        public ISet<Author> Authors { get; protected set; } = new HashSet<Author>();
+        public virtual string Name { get; set; }
 
+        /// <summary>
+        /// Получает или задает список автора.
+        /// </summary>
+        public virtual Author Picture_author { get; set; }
+
+        /// <inheritdoc/>
         public override string ToString()
         {
-            return $"{this.Name}  {this.Authors.Join()}";
+            return $"{this.Name}  {this.Picture_author.FullName}";
         }
-    } 
+    }
 }

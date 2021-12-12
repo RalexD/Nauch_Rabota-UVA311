@@ -1,25 +1,41 @@
-﻿namespace PictureGallery
+﻿// <copyright file="Program.cs" company="МИИТ_УВА-311">
+// Copyright (c) МИИТ_УВА-311. All rights reserved.
+// </copyright>
+
+namespace PictureGallery
 {
-    using NHibernate;
-    using System;
-    using System.Reflection;
-    public class Program
+    using ORM;
+    using Domain;
+    using ORM.Repositories;
+    /// <summary>
+    /// Исполняемый класс.
+    /// </summary>
+    internal class Program
     {
         private static void Main(string[] args)
         {
-            var author = new Domain.Author(1, "Васнецов", "Виктор");
-            var picture = new Domain.Picture(1, "Богатыри");
-            author.AddPicture(picture);
-
-            Console.WriteLine($"{picture} {author}");
-
-            var sessionFactory = ORM.NHibernateConfigurator.GetSessionFactory(showSQL: true);
-
-            using(var session = sessionFactory.OpenSession())
+            using (var db = NHibernateConfigurator.GetSessionFactory())
             {
-                session.Save(author);
-                session.Save(picture);
-                session.Flush();
+                Author author = new Author(1, "Носов", "Николай");
+                Author author1 = new Author(2, "Макртумян", "Артём");
+                Picture picture = new Picture(1, "Миит");
+                author1.AddPicture(picture);
+                Hall hall = new Hall(1, "Третьяковская галерея");
+                hall.AddPicture(picture);
+
+                var session = db.OpenSession();
+                AuthorRepository authorRepository = new AuthorRepository(session);
+                PictureRepository pictureRepository = new PictureRepository(session);
+                HallRepository hallRepository = new HallRepository(session);
+                
+                pictureRepository.Create(picture);
+                authorRepository.Create(author);
+                authorRepository.Create(author1);
+                hallRepository.Create(hall);
+                
+                
+                
+          
             }
         }
     }
